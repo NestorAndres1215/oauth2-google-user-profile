@@ -14,7 +14,7 @@ export class AuthService {
   constructor(
     private router: Router,
     private http: HttpClient
-  ) {}
+  ) { }
 
 
   loginWithGoogle(): void {
@@ -26,12 +26,12 @@ export class AuthService {
     localStorage.setItem('jwt', token);
   }
 
-  
+
   getToken(): string | null {
     return localStorage.getItem('jwt');
   }
 
- 
+
   handleTokenFromUrl(): void {
 
     const params = new URLSearchParams(window.location.search);
@@ -39,7 +39,7 @@ export class AuthService {
 
     if (token) {
       this.saveToken(token);
-      this.router.navigate(['/profile'], { replaceUrl: true }); 
+      this.router.navigate(['/profile'], { replaceUrl: true });
     }
   }
 
